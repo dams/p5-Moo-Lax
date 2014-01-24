@@ -9,12 +9,19 @@ package Moo::Role::Lax;
 
 =cut
 
+use strict;
+use warnings;
+
 require strictures;
 my $orig = \&strictures::import;
-require Moo;
+require Moo::Role;
 sub import {
-    *strictures::import = sub { *strictures::import = $orig };
-    splice @_, 0, 1, 'Moo::Role'; goto &Moo::import;
+    no warnings 'redefine';
+    *strictures::import = sub {
+        strict->import; warnings->import;
+        *strictures::import = $orig;
+    };
+    splice @_, 0, 1, 'Moo::Role'; goto &Moo::Role::import;
 }
 
 1

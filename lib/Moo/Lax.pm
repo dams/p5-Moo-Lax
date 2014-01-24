@@ -9,11 +9,18 @@ package Moo::Lax;
 
 =cut
 
+use strict;
+use warnings;
+
 require strictures;
 my $orig = \&strictures::import;
 require Moo;
 sub import {
-    *strictures::import = sub { *strictures::import = $orig };
+    no warnings 'redefine';
+    *strictures::import = sub {
+        strict->import; warnings->import;
+        *strictures::import = $orig;
+    };
     splice @_, 0, 1, 'Moo'; goto &Moo::import;
 }
 
