@@ -1,5 +1,9 @@
 {{$NEXT}}
 
+0.11      2014-01-24 21:08:41 Europe/Amsterdam
+
+   * fix Moo::Role::Lax
+
 0.10      2014-01-24 15:33:41 Europe/Amsterdam
 
    * Initial version
