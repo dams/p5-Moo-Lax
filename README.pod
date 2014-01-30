@@ -4,11 +4,28 @@
 
 =head1 NAME
 
-Moo::Lax - By default Moo turns all warnings to fatal warnings. C<Moo::Lax> is exactly the same as C<Moo>, except that it doesn't turn all warnings to fatal warnings in the calling module.
+Moo::Lax - Loads Moo without turning warnings to fatal.
 
-=head1 VERSION
+=head1 SYNOPSIS
 
-version 0.10
+  # instead of use Moo;
+  use Moo::Lax;
+
+=head1 DESCRIPTION
+
+By default Moo turns all warnings to fatal warnings. C<Moo::Lax> is exactly the
+same as C<Moo>, except that it doesn't turn all warnings to fatal warnings in
+the calling module.
+
+=head1 CONTRIBUTORS
+
+=over
+
+=item *
+
+Leon Timmermans
+
+=back
 
 =head1 AUTHOR
 
