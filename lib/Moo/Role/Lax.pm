@@ -1,6 +1,12 @@
 package Moo::Role::Lax;
 
-#ABSTRACT: By default Moo::Role turns all warnings to fatal warnings. This module is exactly the same as Moo::Role, except that it doesn't turn all warnings to fatal warnings in the calling module.
+#ABSTRACT: Loads Moo::Role without turning warnings to fatal.
+
+=head1 DESCRIPTION
+
+By default Moo::Role turns all warnings to fatal warnings. This module is
+exactly the same as Moo::Role, except that it doesn't turn all warnings to
+fatal warnings in the calling module.
 
 =head1 SYNOPSIS
 
