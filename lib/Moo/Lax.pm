@@ -12,16 +12,16 @@ package Moo::Lax;
 use strict;
 use warnings;
 
-require strictures;
-my $orig = \&strictures::import;
-require Moo;
+use Moo ();
+use Import::Into;
+
 sub import {
-    no warnings 'redefine';
-    *strictures::import = sub {
-        strict->import; warnings->import;
-        *strictures::import = $orig;
-    };
-    splice @_, 0, 1, 'Moo'; goto &Moo::import;
+    no warnings 'uninitialized';
+    my $previous_bits = ${^WARNING_BITS} & $warnings::DeadBits{all};
+    local $ENV{PERL_STRICTURES_EXTRA} = 0;
+    Moo->import::into(caller, @_);
+    ${^WARNING_BITS} &= ~$warnings::DeadBits{all} | $previous_bits;
+    return;
 }
 
 1
