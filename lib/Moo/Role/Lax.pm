@@ -30,7 +30,7 @@ sub import {
     return;
 }
 
-1
+1;
 
 =head1 CONTRIBUTORS
 
