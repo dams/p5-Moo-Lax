@@ -1,8 +1,15 @@
 package oo::Lax;
  
-#ABSTRACT: By default oo turns all warnings to fatal warnings. C<oo::Lax> is exactly the same as C<oo>, except that it doesn't turn all warnings to fatal warnings in the calling module.
+#ABSTRACT: Loads oo without turning warnings to fatal.
 
-use strictures 1;
+=head1 DESCRIPTION
+
+By default oo turns all warnings to fatal warnings. C<oo::Lax> is exactly the
+same as C<oo>, except that it doesn't turn all warnings to fatal warnings in
+the calling module.
+
+=cut
+
 use Moo::_Utils;
  
 sub moo {
