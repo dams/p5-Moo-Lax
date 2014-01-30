@@ -1,5 +1,9 @@
 {{$NEXT}}
 
+0.12      2014-01-30 09:12:53 Europe/Amsterdam
+
+   * better implementation by leont
+
 0.11      2014-01-24 21:08:41 Europe/Amsterdam
 
    * fix Moo::Role::Lax
