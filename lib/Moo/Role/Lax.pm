@@ -25,3 +25,13 @@ sub import {
 }
 
 1
+
+=head1 CONTRIBUTORS
+
+=over
+
+=item *
+
+Leon Timmermans
+
+=back
