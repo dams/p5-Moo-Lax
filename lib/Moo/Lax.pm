@@ -42,4 +42,8 @@ sub import { Moo->import::into(caller, @_); return }
 
 Leon Timmermans
 
+=item *
+
+Olivier Mengué
+
 =back

@@ -11,6 +11,8 @@ an explicit C<use strictures> is added to the code.
 As such, this module is no longer required - simply update your dependency
 on Moo to version 2 and switch back to plain C<use Moo> in your classes.
 
+Thus, as per version 2.00, this module simply requires L<Moo> version 2.
+
 =head1 DESCRIPTION
 
 By default oo turns all warnings to fatal warnings. C<oo::Lax> is exactly the
@@ -20,7 +22,7 @@ the calling module.
 =cut
 
 use Moo::_Utils;
- 
+
 sub moo {
   print <<'EOMOO';
  _________________
@@ -34,7 +36,7 @@ sub moo {
 EOMOO
   exit 0;
 }
- 
+
 BEGIN {
     my $package;
     sub import {
@@ -47,5 +49,5 @@ BEGIN {
     }
     use Filter::Simple sub { s/^/package $package;\nuse Moo::Lax;\n/; }
 }
- 
+
 1;
