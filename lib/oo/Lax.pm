@@ -23,6 +23,12 @@ the calling module.
 
 use Moo::_Utils;
 
+=head2 moo
+
+  Tip: run C<perl -Moo::Lax>, a cow should appear.
+
+=cut
+
 sub moo {
   print <<'EOMOO';
  _________________
