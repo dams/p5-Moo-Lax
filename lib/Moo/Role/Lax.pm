@@ -11,6 +11,8 @@ an explicit C<use strictures> is added to the code.
 As such, this module is no longer required - simply update your dependency
 on Moo to version 2 and switch back to plain C<use Moo> in your classes.
 
+Thus, as per version 2.00, this module simply requires L<Moo::Role> version 2.
+
 =head1 DESCRIPTION
 
 By default Moo::Role turns all warnings to fatal warnings. This module is
@@ -24,20 +26,11 @@ fatal warnings in the calling module.
 
 =cut
 
-use strict;
-use warnings;
-
-use Moo::Role ();
+our $VERSION = 2;
+use Moo::Role 2 ();
 use Import::Into;
 
-sub import {
-    no warnings 'uninitialized';
-    my $previous_bits = ${^WARNING_BITS} & $warnings::DeadBits{all};
-    local $ENV{PERL_STRICTURES_EXTRA} = 0;
-    Moo::Role->import::into(caller, @_);
-    ${^WARNING_BITS} &= ~$warnings::DeadBits{all} | $previous_bits;
-    return;
-}
+sub import { Moo::Role->import::into(caller, @_); return }
 
 1;
 
