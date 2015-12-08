@@ -21,7 +21,8 @@ the calling module.
 
 =cut
 
-use Moo::_Utils;
+use Import::Into;
+use oo ();
 
 =head2 moo
 
@@ -43,17 +44,10 @@ EOMOO
   exit 0;
 }
 
-BEGIN {
-    my $package;
-    sub import {
-        moo() if $0 eq '-';
-        $package = $_[1] || 'Class';
-        if ($package =~ /^\+/) {
-            $package =~ s/^\+//;
-            _load_module($package);
-        }
-    }
-    use Filter::Simple sub { s/^/package $package;\nuse Moo::Lax;\n/; }
+sub import {
+    moo() if $0 eq '-';
+    shift;
+    oo->import::into(1, @_);
 }
 
 1;
